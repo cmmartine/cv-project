@@ -26,9 +26,11 @@ class GeneralInfo extends Component {
           <label htmlFor="phone">Phone</label>
           <input type="tel" id="phone" placeholder={newPhone} onChange={(e) => {newPhone = e.target.value}}/>
 
-          <input type="submit" className="form-submit" value="Save" onClick={(e) => { 
+          <input type="submit" className="form-submit" value="Save" 
+          onClick={(e) => { 
           e.preventDefault();
-          handleState(newName, newEmail, newPhone)}}/>
+          handleState(newName, newEmail, newPhone);
+          }}/>
         </form>
       </div>
     )
