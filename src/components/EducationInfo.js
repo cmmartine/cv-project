@@ -8,7 +8,7 @@ class EducationInfo extends Component {
   render() {
     return (
       <div>
-        <h2 class="form-section-header">Education</h2>
+        <h2 className="form-section-header">Education</h2>
         <form>
           <label htmlFor="school">School</label>
           <input type="text" id="school"/>
@@ -22,7 +22,7 @@ class EducationInfo extends Component {
           <label htmlFor="school-finish-date">Finish Date (Approximate)</label>
           <input type="date" id="school-finish-date"/>
 
-          <input type="submit" class="form-submit" value="Save"/>
+          <input type="submit" className="form-submit" value="Save"/>
         </form>
       </div>
     )

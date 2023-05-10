@@ -8,7 +8,7 @@ class ExperienceInfo extends Component {
   render() {
     return (
       <div>
-        <h2 class="form-section-header">Experience</h2>
+        <h2 className="form-section-header">Experience</h2>
         <form>
           <label htmlFor="company">Company</label>
           <input type="text" id="company"/>
@@ -25,7 +25,7 @@ class ExperienceInfo extends Component {
           <label htmlFor="job-finish-date">Finish Date (Approximate)</label>
           <input type="date" id="job-finish-date"/>
 
-          <input type="submit" class="form-submit" value="Save"/>
+          <input type="submit" className="form-submit" value="Save"/>
         </form>
       </div>
     )

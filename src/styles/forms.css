@@ -2,6 +2,11 @@ form {
   display: flex;
   flex-direction: column;
   width: 200px;
+  margin-left: 50px;
+}
+
+.form-section-header {
+  margin-left: 50px;
 }
 
 label {
