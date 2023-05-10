@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import ExperienceInfo from './components/ExperienceInfo';
 import EducationInfo from './components/EducationInfo';
+import ShowSavedInfo from './components/ShowSavedInfo';
+import './styles/forms.css';
+import './styles/general.css';
 
 class App extends Component {
   constructor() {
@@ -10,7 +13,7 @@ class App extends Component {
     this.state = {
       general: [{name: '', email: '', phone: ''}],
       education: [{school: '', degree: '', start: '', finish: ''}],
-      experience: [{company: 'one', position: '', duties: '', start: '', finish: ''}],
+      experience: [{company: '', position: '', duties: '', start: '', finish: ''}],
     }
   }
 
@@ -55,6 +58,7 @@ class App extends Component {
         <GeneralInfo general={general} handleState={this.handleGeneralState} />
         <EducationInfo education={education} handleState={this.handleEducationState} />
         <ExperienceInfo experience={experience} handleState={this.handleExperienceState} />
+        <ShowSavedInfo general={general} education={education} experience={experience}/>
       </div>
     );
   }
