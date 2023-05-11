@@ -6,7 +6,8 @@ class ExperienceInfo extends Component {
   }
 
   render() {
-    const experience = this.props.experience[0];
+    const count = this.props.experienceCount;
+    const experience = this.props.experience;
     let newCompany = experience.company;
     let newPosition = experience.position;
     let newDuties = experience.duties;
@@ -29,15 +30,15 @@ class ExperienceInfo extends Component {
 
           <label htmlFor="job-start-date">Start Date (Approximate)</label>
           <input type="date" id="job-start-date" placeholder={newStart} onChange={(e) => {newStart = e.target.value}} />
-          
+            
           <label htmlFor="job-finish-date">Finish Date (Approximate)</label>
           <input type="date" id="job-finish-date" placeholder={newFinish} onChange={(e) => {newFinish = e.target.value}} />
 
           <input type="submit" className="form-submit" value="Save" 
           onClick={(e) => { 
           e.preventDefault();
-          handleState(newCompany, newPosition, newDuties, newStart, newFinish);
-          }}/>
+          handleState(newCompany, newPosition, newDuties, newStart, newFinish, count);
+            }}/>
         </form>
       </div>
     )
