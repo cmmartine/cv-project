@@ -13,7 +13,7 @@ class ShowSavedInfo extends Component {
     const br = <br></br>;
 
     return (
-      <div className="review-div">
+      <div className="right-review-container">
         <h2 className="review-title">Review</h2>
           <div className="review-section">
             <p><strong>Name:</strong>{br}</p>

@@ -13,11 +13,12 @@ class EducationForm extends Component {
     let newFinish = education.finish;
     let saved = education.saved;
     const handleState = this.props.handleState;
+    const editState = this.props.editState;
 
     if (saved === false) {
       return (
         <div>
-          <h2 className="form-section-header">Education</h2>
+          <h2 className="form-section-header">Highest Education</h2>
           <form>
             <label htmlFor="school">School</label>
             <input type="text" id="school" placeholder={newSchool} onChange={(e) => {newSchool = e.target.value}}/>
@@ -41,8 +42,28 @@ class EducationForm extends Component {
       )
     } else {
       return(
-        <>
-        </>
+        <div>
+          <h2 className="form-section-header">Highest Education</h2>
+          <form>
+            <label htmlFor="school">School</label>
+            <input type="text" id="school" placeholder={newSchool} disabled/>
+
+            <label htmlFor="degree">Degree</label>
+            <input type="text" id="degree" placeholder={newDegree} disabled/>
+
+            <label htmlFor="school-start-date">Start Date (Approximate)</label>
+            <input type="date" id="school-start-date" placeholder={newStart} disabled/>
+            
+            <label htmlFor="school-finish-date">Finish Date (Approximate)</label>
+            <input type="date" id="school-finish-date" placeholder={newFinish} disabled/>
+
+            <input type="submit" className="form-submit" value="Edit" 
+            onClick={(e) => { 
+            e.preventDefault();
+            editState(newSchool, newDegree, newStart, newFinish);
+            }}/>
+          </form>
+        </div>
       )
     }
   }

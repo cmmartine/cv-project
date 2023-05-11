@@ -15,6 +15,7 @@ class ExperienceForm extends Component {
     let newFinish = experience.finish;
     let saved = experience.saved;
     const handleState = this.props.handleState;
+    const editState = this.props.editState;
 
     if (saved === false) {
       return (
@@ -45,8 +46,30 @@ class ExperienceForm extends Component {
       )
     } else {
       return(
-        <>
-        </>
+        <div>
+          <form>
+            <label htmlFor="company">Company</label>
+            <input type="text" id="company" placeholder={newCompany} disabled/>
+
+            <label htmlFor="position">Position Title</label>
+            <input type="text" id="position" placeholder={newPosition} disabled />
+
+            <label htmlFor="job-duties">Main Duties</label>
+            <textarea rows="10" id="job-duties" placeholder={newDuties} disabled />
+
+            <label htmlFor="job-start-date">Start Date (Approximate)</label>
+            <input type="date" id="job-start-date" placeholder={newStart} disabled />
+              
+            <label htmlFor="job-finish-date">Finish Date (Approximate)</label>
+            <input type="date" id="job-finish-date" placeholder={newFinish} disabled />
+
+            <input type="submit" className="form-submit" value="Edit" 
+            onClick={(e) => { 
+            e.preventDefault();
+            editState(newCompany, newPosition, newDuties, newStart, newFinish, count);
+              }}/>
+          </form>
+        </div>
       )
     }
   }

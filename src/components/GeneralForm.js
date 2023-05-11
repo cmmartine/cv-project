@@ -12,6 +12,7 @@ class GeneralForm extends Component {
     let newPhone = general.phone;
     let saved = general.saved;
     const handleState = this.props.handleState;
+    const editState = this.props.editState;
 
     if (saved === false) {
       return (
@@ -19,13 +20,13 @@ class GeneralForm extends Component {
           <h2 className="form-section-header">General</h2>
           <form>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder={newName} onChange={(e) => {newName = e.target.value}}/>
+            <input type="text" id="name" defaultValue={newName} onChange={(e) => {newName = e.target.value}}/>
 
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder={newEmail}onChange={(e) => {newEmail = e.target.value}}/>
+            <input type="email" id="email" defaultValue={newEmail} onChange={(e) => {newEmail = e.target.value}}/>
 
             <label htmlFor="phone">Phone</label>
-            <input type="tel" id="phone" placeholder={newPhone} onChange={(e) => {newPhone = e.target.value}}/>
+            <input type="tel" id="phone" defaultValue={newPhone} onChange={(e) => {newPhone = e.target.value}}/>
 
             <input type="submit" className="form-submit" value="Save" 
             onClick={(e) => { 
@@ -37,8 +38,25 @@ class GeneralForm extends Component {
       )
     } else {
       return(
-        <>
-        </>
+        <div>
+          <h2 className="form-section-header">General</h2>
+          <form>
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" placeholder={newName} disabled/>
+
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder={newEmail} disabled/>
+
+            <label htmlFor="phone">Phone</label>
+            <input type="tel" id="phone" placeholder={newPhone} disabled/>
+
+            <input type="submit" className="form-submit" value="Edit" 
+            onClick={(e) => { 
+            e.preventDefault();
+            editState(newName, newEmail, newPhone);
+            }}/>
+          </form>
+        </div>
       )
     }
 

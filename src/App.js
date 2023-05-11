@@ -28,6 +28,17 @@ class App extends Component {
       }]
     })
   }
+  
+  editGeneralState = (newName, newEmail, newPhone) => {
+    this.setState({
+      general: [{
+        name: newName,
+        email: newEmail,
+        phone: newPhone,
+        saved: false,
+      }]
+    })
+  }
 
   handleEducationState = (newSchool, newDegree, newStart, newFinish) => {
     this.setState({
@@ -41,6 +52,18 @@ class App extends Component {
     })
   }
 
+  editEducationState = (newSchool, newDegree, newStart, newFinish) => {
+    this.setState({
+      education: [{
+        school: newSchool,
+        degree: newDegree,
+        start: newStart,
+        finish: newFinish,
+        saved: false,
+      }]
+    })
+  }
+
   handleExperienceState = (newCompany, newPosition, newDuties, newStart, newFinish, count) => {
     const newExperience = {
       company: newCompany,
@@ -49,6 +72,22 @@ class App extends Component {
       start: newStart,
       finish: newFinish,
       saved: true,
+    }
+    let copy = [...this.state.experience]
+    copy.splice(count, 1, newExperience)
+    this.setState({
+      experience: copy,
+    })
+  }
+
+  editExperienceState = (newCompany, newPosition, newDuties, newStart, newFinish, count) => {
+    const newExperience = {
+      company: newCompany,
+      position: newPosition,
+      duties: newDuties,
+      start: newStart,
+      finish: newFinish,
+      saved: false,
     }
     let copy = [...this.state.experience]
     copy.splice(count, 1, newExperience)
@@ -75,18 +114,23 @@ class App extends Component {
     const { general, education, experience } = this.state;
 
     return (
-      <div>
-        <GeneralForm general={general} handleState={this.handleGeneralState} />
-        <EducationForm education={education} handleState={this.handleEducationState} />
-        <h2 className="form-section-header">Experience</h2>
-        <ul>
-          {experience.map((exp) => (
-            <li key={experience.indexOf(exp)}>
-              <ExperienceForm experience={exp} handleState={this.handleExperienceState} experienceCount={experience.indexOf(exp)} />
-            </li>
-          ))}
-        </ul>
-        <button className="add-experience" onClick={this.additionalExperience}>Add Experience</button>
+      <div className="content-container">
+        <div className="left-forms-container">
+
+          <GeneralForm general={general} handleState={this.handleGeneralState} editState={this.editGeneralState} />
+
+          <EducationForm education={education} handleState={this.handleEducationState} editState={this.editEducationState}/>
+
+          <h2 className="form-section-header">Experience</h2>
+          <ul>
+            {experience.map((exp) => (
+              <li key={experience.indexOf(exp)}>
+                <ExperienceForm experience={exp} handleState={this.handleExperienceState} editState={this.editExperienceState} experienceCount={experience.indexOf(exp)} />
+              </li>
+            ))}
+          </ul>
+          <button className="add-experience" onClick={this.additionalExperience}>Add Experience</button>
+        </div>
 
         <ShowSavedInfo general={general} education={education} experience={experience}/>
         
