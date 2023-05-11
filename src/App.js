@@ -11,9 +11,9 @@ class App extends Component {
     super();
 
     this.state = {
-      general: [{name: '', email: '', phone: ''}],
-      education: [{school: '', degree: '', start: '', finish: ''}],
-      experience: [{company: '', position: '', duties: '', start: '', finish: ''}],
+      general: [{name: '', email: '', phone: '', saved: false}],
+      education: [{school: '', degree: '', start: '', finish: '', saved: false}],
+      experience: [{company: '', position: '', duties: '', start: '', finish: '', saved: false}],
       experience_count: 0,
     }
   }
@@ -24,6 +24,7 @@ class App extends Component {
         name: newName,
         email: newEmail,
         phone: newPhone,
+        saved: true,
       }]
     })
   }
@@ -35,6 +36,7 @@ class App extends Component {
         degree: newDegree,
         start: newStart,
         finish: newFinish,
+        saved: true,
       }]
     })
   }
@@ -46,6 +48,7 @@ class App extends Component {
       duties: newDuties,
       start: newStart,
       finish: newFinish,
+      saved: true,
     }
     let copy = [...this.state.experience]
     copy.splice(count, 1, newExperience)
@@ -63,6 +66,7 @@ class App extends Component {
         duties: '',
         start: '',
         finish: '',
+        saved: false,
       })
     })
   }
