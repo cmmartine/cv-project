@@ -22,19 +22,19 @@ class ExperienceForm extends Component {
         <div>
           <form>
             <label htmlFor="company">Company</label>
-            <input type="text" id="company" placeholder={newCompany} onChange={(e) => {newCompany = e.target.value}}/>
+            <input type="text" id="company" defaultValue={newCompany} onChange={(e) => {newCompany = e.target.value}}/>
 
             <label htmlFor="position">Position Title</label>
-            <input type="text" id="position" placeholder={newPosition} onChange={(e) => {newPosition = e.target.value}} />
+            <input type="text" id="position" defaultValue={newPosition} onChange={(e) => {newPosition = e.target.value}} />
 
             <label htmlFor="job-duties">Main Duties</label>
-            <textarea rows="10" id="job-duties" placeholder={newDuties} onChange={(e) => {newDuties = e.target.value}} />
+            <textarea rows="10" id="job-duties" defaultValue={newDuties} onChange={(e) => {newDuties = e.target.value}} />
 
             <label htmlFor="job-start-date">Start Date (Approximate)</label>
-            <input type="date" id="job-start-date" placeholder={newStart} onChange={(e) => {newStart = e.target.value}} />
+            <input type="date" id="job-start-date" defaultValue={newStart} onChange={(e) => {newStart = e.target.value}} />
               
             <label htmlFor="job-finish-date">Finish Date (Approximate)</label>
-            <input type="date" id="job-finish-date" placeholder={newFinish} onChange={(e) => {newFinish = e.target.value}} />
+            <input type="date" id="job-finish-date" defaultValue={newFinish} onChange={(e) => {newFinish = e.target.value}} />
 
             <input type="submit" className="form-submit" value="Save" 
             onClick={(e) => { 

@@ -21,16 +21,16 @@ class EducationForm extends Component {
           <h2 className="form-section-header">Highest Education</h2>
           <form>
             <label htmlFor="school">School</label>
-            <input type="text" id="school" placeholder={newSchool} onChange={(e) => {newSchool = e.target.value}}/>
+            <input type="text" id="school" defaultValue={newSchool} onChange={(e) => {newSchool = e.target.value}}/>
 
             <label htmlFor="degree">Degree</label>
-            <input type="text" id="degree" placeholder={newDegree} onChange={(e) => {newDegree = e.target.value}}/>
+            <input type="text" id="degree" defaultValue={newDegree} onChange={(e) => {newDegree = e.target.value}}/>
 
             <label htmlFor="school-start-date">Start Date (Approximate)</label>
-            <input type="date" id="school-start-date" placeholder={newStart} onChange={(e) => {newStart = e.target.value}}/>
+            <input type="date" id="school-start-date" defaultValue={newStart} onChange={(e) => {newStart = e.target.value}}/>
             
             <label htmlFor="school-finish-date">Finish Date (Approximate)</label>
-            <input type="date" id="school-finish-date" placeholder={newFinish} onChange={(e) => {newFinish = e.target.value}}/>
+            <input type="date" id="school-finish-date" defaultValue={newFinish} onChange={(e) => {newFinish = e.target.value}}/>
 
             <input type="submit" className="form-submit" value="Save" 
             onClick={(e) => { 
