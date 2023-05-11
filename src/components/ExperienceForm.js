@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ExperienceInfo extends Component {
+class ExperienceForm extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,7 +17,6 @@ class ExperienceInfo extends Component {
 
     return (
       <div>
-        <h2 className="form-section-header">Experience</h2>
         <form>
           <label htmlFor="company">Company</label>
           <input type="text" id="company" placeholder={newCompany} onChange={(e) => {newCompany = e.target.value}}/>
@@ -45,4 +44,4 @@ class ExperienceInfo extends Component {
   }
 }
 
-export default ExperienceInfo;
+export default ExperienceForm;

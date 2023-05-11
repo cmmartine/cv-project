@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import GeneralInfo from './components/GeneralInfo';
-import ExperienceInfo from './components/ExperienceInfo';
-import EducationInfo from './components/EducationInfo';
+import GeneralForm from './components/GeneralForm';
+import ExperienceForm from './components/ExperienceForm';
+import EducationForm from './components/EducationForm';
+import ShowSavedInfo from './components/ShowSavedInfo';
 import './styles/forms.css';
 import './styles/general.css';
 
@@ -71,21 +72,23 @@ class App extends Component {
 
     return (
       <div>
-        <GeneralInfo general={general} handleState={this.handleGeneralState} />
-        <EducationInfo education={education} handleState={this.handleEducationState} />
+        <GeneralForm general={general} handleState={this.handleGeneralState} />
+        <EducationForm education={education} handleState={this.handleEducationState} />
+        <h2 className="form-section-header">Experience</h2>
         <ul>
           {experience.map((exp) => (
             <li key={experience.indexOf(exp)}>
-              <ExperienceInfo experience={exp} handleState={this.handleExperienceState} experienceCount={experience.indexOf(exp)} />
+              <ExperienceForm experience={exp} handleState={this.handleExperienceState} experienceCount={experience.indexOf(exp)} />
             </li>
           ))}
         </ul>
-        <button onClick={this.additionalExperience}>Add Experience</button>
+        <button className="add-experience" onClick={this.additionalExperience}>Add Experience</button>
+
+        <ShowSavedInfo general={general} education={education} experience={experience}/>
         
       </div>
     );
   }
 }
 
-//<ShowSavedInfo general={general} education={education} experience={experience}/>
 export default App;
